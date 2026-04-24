@@ -1,4 +1,4 @@
-﻿// Adapted from: https://github.com/SebLague/Pathfinding-2D
+﻿﻿// Adapted from: https://github.com/SebLague/Pathfinding-2D
 
 using UnityEngine;
 using System.Collections.Generic;

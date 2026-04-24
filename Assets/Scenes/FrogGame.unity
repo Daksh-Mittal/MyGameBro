@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7225845626472838100, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
+      propertyPath: m_TagString
+      value: Fly
+      objectReference: {fileID: 0}
     - target: {fileID: 7225845626754435734, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -266,6 +270,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7225845626472838100, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
+      propertyPath: m_TagString
+      value: Fly
+      objectReference: {fileID: 0}
     - target: {fileID: 7225845626754435734, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -331,6 +339,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7225845626472838100, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
+      propertyPath: m_TagString
+      value: Fly
+      objectReference: {fileID: 0}
     - target: {fileID: 7225845626754435734, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -391,6 +403,10 @@ PrefabInstance:
     - target: {fileID: 7225845626472838100, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
       propertyPath: m_Name
       value: Fly1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225845626472838100, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
+      propertyPath: m_TagString
+      value: Fly
       objectReference: {fileID: 0}
     - target: {fileID: 7225845626754435734, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
       propertyPath: m_RootOrder
@@ -454,6 +470,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1016879730904951504, guid: ee63d98bc87f46d468edf7be29352e6c, type: 3}
+      propertyPath: isAI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016879730904951504, guid: ee63d98bc87f46d468edf7be29352e6c, type: 3}
+      propertyPath: MaxAccel
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016879730904951504, guid: ee63d98bc87f46d468edf7be29352e6c, type: 3}
+      propertyPath: MaxSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1016879730904951504, guid: ee63d98bc87f46d468edf7be29352e6c, type: 3}
       propertyPath: SteeringType
       value: 1
@@ -803,6 +831,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7225845626472838100, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
+      propertyPath: m_TagString
+      value: Fly
+      objectReference: {fileID: 0}
     - target: {fileID: 7225845626754435734, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -863,6 +895,10 @@ PrefabInstance:
     - target: {fileID: 7225845626472838100, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
       propertyPath: m_Name
       value: Fly2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225845626472838100, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
+      propertyPath: m_TagString
+      value: Fly
       objectReference: {fileID: 0}
     - target: {fileID: 7225845626754435734, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
       propertyPath: m_RootOrder
@@ -994,6 +1030,10 @@ PrefabInstance:
     - target: {fileID: 7225845626472838100, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225845626472838100, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
+      propertyPath: m_TagString
+      value: Fly
       objectReference: {fileID: 0}
     - target: {fileID: 7225845626754435734, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
       propertyPath: m_RootOrder
@@ -1271,6 +1311,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7225845626472838100, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
+      propertyPath: m_TagString
+      value: Fly
+      objectReference: {fileID: 0}
     - target: {fileID: 7225845626754435734, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -1335,6 +1379,10 @@ PrefabInstance:
     - target: {fileID: 7225845626472838100, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225845626472838100, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
+      propertyPath: m_TagString
+      value: Fly
       objectReference: {fileID: 0}
     - target: {fileID: 7225845626754435734, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
       propertyPath: m_RootOrder
@@ -1637,6 +1685,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7225845626472838100, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
+      propertyPath: m_TagString
+      value: Fly
+      objectReference: {fileID: 0}
     - target: {fileID: 7225845626754435734, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1799,6 +1851,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7225845626472838100, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
+      propertyPath: m_TagString
+      value: Fly
+      objectReference: {fileID: 0}
     - target: {fileID: 7225845626754435734, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -1944,7 +2000,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1980663087}
   - component: {fileID: 1980663088}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MudPatch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2016,7 +2072,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: c04199e6c8f93e5458680c644d9f8b32, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.627451, g: 0.3215686, b: 0.1764706, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2090,7 +2146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2026019339}
   - component: {fileID: 2026019338}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MudPatch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2147,7 +2203,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: c04199e6c8f93e5458680c644d9f8b32, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.627451, g: 0.3215686, b: 0.1764706, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2191,6 +2247,10 @@ PrefabInstance:
     - target: {fileID: 7225845626472838100, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225845626472838100, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
+      propertyPath: m_TagString
+      value: Fly
       objectReference: {fileID: 0}
     - target: {fileID: 7225845626754435734, guid: 578233333a3faab40a9eca7bf269e874, type: 3}
       propertyPath: m_RootOrder
