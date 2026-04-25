@@ -14,6 +14,14 @@ public class AStarGrid : MonoBehaviour
     // TODO: This is unused, and can be added as part of the workshop
     public bool includeDiagonalNeighbours;
 
+    [System.Serializable]
+    public struct TerrainType {
+        public LayerMask terrainMask;
+        public int terrainPenalty;
+    }
+    public TerrainType[] walkableRegions;
+    public LayerMask dynamicObstacleMask;
+
     Node[,] grid;
     float nodeDiameter;
     int gridSizeX, gridSizeY;
@@ -45,44 +53,43 @@ public class AStarGrid : MonoBehaviour
             for (int y = 0; y < gridSizeY; y++)
             {
                 Vector2 worldPoint = worldBottomLeft + Vector2.right * (x * nodeDiameter + gridSize) + Vector2.up * (y * nodeDiameter + gridSize);
-
-                bool walkable = (Physics2D.OverlapCircle(worldPoint, overlapCircleRadius, unwalkableMask) == null);
-
-                grid[x, y] = new Node(walkable, worldPoint, x, y);
+    bool walkable = (Physics2D.OverlapCircle(worldPoint, overlapCircleRadius, unwalkableMask) == null);
+    
+    int movementPenalty = 0;
+    if (walkable) {
+        foreach (TerrainType region in walkableRegions) {
+            if (Physics2D.OverlapCircle(worldPoint, overlapCircleRadius, region.terrainMask)) {
+                movementPenalty += region.terrainPenalty;
+            }
+        }
+        if (Physics2D.OverlapCircle(worldPoint, overlapCircleRadius * 2f, dynamicObstacleMask)) {
+            movementPenalty += 50; // Dynamic Obstacle avoidance
+        }
+    }
+    grid[x, y] = new Node(walkable, worldPoint, x, y, movementPenalty);
             }
         }
     }
 
     public List<Node> GetNeighbours(Node node)
     {
-        // TODO: Update this method to include diagonal neighbours if includeDiagonalNeighbours == true.
-
         List<Node> neighbours = new List<Node>();
-
-        // Left
-        if (node.gridX - 1 > 0)
+        for (int x = -1; x <= 1; x++)
         {
-            neighbours.Add(grid[node.gridX - 1, node.gridY]);
-        }
+            for (int y = -1; y <= 1; y++)
+            {
+                if (x == 0 && y == 0) continue;
+                if (!includeDiagonalNeighbours && Mathf.Abs(x) + Mathf.Abs(y) == 2) continue;
 
-        // Right
-        if (node.gridX + 1 < gridSizeX)
-        {
-            neighbours.Add(grid[node.gridX + 1, node.gridY]);
-        }
+                int checkX = node.gridX + x;
+                int checkY = node.gridY + y;
 
-        // Up
-        if (node.gridY - 1 > 0)
-        {
-            neighbours.Add(grid[node.gridX, node.gridY - 1]);
+                if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY)
+                {
+                    neighbours.Add(grid[checkX, checkY]);
+                }
+            }
         }
-
-        // Down
-        if (node.gridY + 1 < gridSizeY)
-        {
-            neighbours.Add(grid[node.gridX, node.gridY + 1]);
-        }
-
         return neighbours;
     }
 
@@ -173,13 +180,21 @@ public class AStarGrid : MonoBehaviour
         {
             foreach (Node n in grid)
             {
-                if (!n.walkable)
+                if (!n.walkable) 
                 {
                     Gizmos.color = Color.red;
                 }
-                else
+                else if (n.movementPenalty >= 30) 
                 {
-                    Gizmos.color = Color.white;
+                    Gizmos.color = Color.blue; 
+                }
+                else if (n.movementPenalty > 0) 
+                {
+                    Gizmos.color = new Color(0.5f, 0.5f, 1f); 
+                }
+                else 
+                {
+                    Gizmos.color = Color.grey; 
                 }
 
                 Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - 0.1f));

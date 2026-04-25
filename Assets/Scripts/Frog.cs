@@ -8,6 +8,8 @@ public class Frog : MonoBehaviour
     // Frog status.
     public int Health;
 
+    private float _repathTimer = 0f;
+
     // Steering parameters.
     public float MaxSpeed;
     public float MaxAccel;
@@ -44,6 +46,10 @@ public class Frog : MonoBehaviour
     private float distanceToClosestSnake;
     public float anchorWeight;
     public Vector2 AnchorDims;
+
+    private Node[] _currentPath;
+
+    private int _targetWaypointIndex;
 
 
 
@@ -147,13 +153,50 @@ public class Frog : MonoBehaviour
     {
         if (_lastClickPos != null)
         {
-            return (getVelocityTowardsFlag());
+            _repathTimer += Time.fixedDeltaTime;
+            // They add the grid regeneration and timer reset
+            if (_currentPath == null || _repathTimer > 0.5f) { 
+                Pathfinding.grid.CreateGrid(); // Refreshes moving snake positions
+                _currentPath = Pathfinding.RequestPath(transform.position, (Vector2)_lastClickPos);
+                _targetWaypointIndex = 0;
+                _repathTimer = 0f;
+            }
+            return getVelocityTowardsPath();
         }
-
         else
         {
-            return (Vector2.zero);
+            _currentPath = null;
+            return Vector2.zero;
         }
+    }
+
+    private Vector2 getVelocityTowardsPath()
+    {
+        if (_currentPath == null || _targetWaypointIndex >= _currentPath.Length) 
+        {
+            _lastClickPos = null;
+            if (HideFlagOnceReached) _flagSr.enabled = false;
+            return Vector2.zero;
+        }
+
+        Vector2 targetPos = _currentPath[_targetWaypointIndex].worldPosition;
+        float distToWaypoint = Vector2.Distance(transform.position, targetPos);
+
+        if (distToWaypoint < Constants.TARGET_REACHED_TOLERANCE)
+        {
+            _targetWaypointIndex++;
+            if (_targetWaypointIndex >= _currentPath.Length)
+            {
+                _currentPath = null;
+                return Vector2.zero;
+            }
+            targetPos = _currentPath[_targetWaypointIndex].worldPosition;
+        }
+
+        if (_targetWaypointIndex == _currentPath.Length - 1)
+            return Steering.ArriveDirect(transform.position, targetPos, _arriveRadius, MaxSpeed);
+        else
+            return Steering.SeekDirect(transform.position, targetPos, MaxSpeed);
     }
 
     private Vector2 getVelocityTowardsFlag()

@@ -25,20 +25,23 @@ public class Node : IHeapItem<Node>
     // Parent for this node (for reconstructing the path)
     public Node parent;
 
+    public int movementPenalty;
+
     // For heap management
     int heapIndex;
 
-    public Node(bool _walkable, Vector2 _worldPos, int _gridX, int _gridY)
+    public Node(bool _walkable, Vector2 _worldPos, int _gridX, int _gridY, int _penalty = 0)
     {
         walkable = _walkable;
         worldPosition = _worldPos;
         gridX = _gridX;
         gridY = _gridY;
+        movementPenalty = _penalty; 
     }
 
     public Node Clone()
     {
-        return new Node(walkable, worldPosition, gridX, gridY);
+        return new Node(walkable, worldPosition, gridX, gridY, movementPenalty);
     }
 
     public float fCost
